@@ -1,0 +1,40 @@
+@use "mixins/summary" as summary;
+:host {
+  position:sticky;
+  top: 15px;
+  display: block;
+  .content__inner {
+
+    .main-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .purse {
+      &__title {
+        font-weight: 500;
+      }
+
+      &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .display{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      &__title{
+        font-weight: 500;
+      }
+      &__credit{
+       font-weight: 500; 
+      }
+    }
+
+    @include summary.checkout_summary();
+  }
+}

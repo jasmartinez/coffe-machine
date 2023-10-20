@@ -1,0 +1,45 @@
+<div class="container" (click)="close()">
+  <div class="summary__header">
+    <div class="summary__title">
+      Summary
+    </div>
+  <div class="summary__desmiss">
+    <button mat-button (click)="close()">
+      <mat-icon >close</mat-icon>
+    </button>
+  </div>
+  </div>
+  <div class="content">
+    <div class="summary__table" >
+      <table>
+        <tr *ngIf="data.order.length" class="table-title">
+          <td><span class="item-text">Item</span></td>
+          <td><span class="item-text">Qty</span></td>
+          <td><span class="item-text">Sub Total</span></td>
+        </tr>
+
+        <ng-container *ngFor="let entry of data.order">
+            <tr class="service">
+              <td class="table-item"><p class="item-text">{{ entry.name}}</p></td>
+              <td class="table-item"><p class="item-text">{{ entry.units}}</p></td>
+              <td class="table-item"><p class="item-text">{{ entry.price }}€</p></td>
+            </tr>
+        </ng-container>
+
+        <tr class="table-title">
+          <td></td>
+          <td ><span class="item-text">Refund</span></td>
+          <td ><span class="item-text">{{ data.refund}} €</span></td>
+        </tr>
+
+        <tr *ngIf="data.total > 0" class="table-title">
+          <td></td>
+          <td><span class="item-text">Total</span></td>
+          <td><span class="item-text">{{ data.total}}€</span></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
+

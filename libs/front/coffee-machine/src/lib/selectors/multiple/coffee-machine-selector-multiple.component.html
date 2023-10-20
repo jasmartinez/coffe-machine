@@ -1,0 +1,32 @@
+
+<mat-card class="entry__{{prefix}}">
+  <div class="entry__{{prefix}}__inner">
+    <div class="entry__{{prefix}}__inner__image">
+      <img mat-card-image [src]="data?.url">
+    </div>
+    <mat-card-content class="entry__{{prefix}}__inner__content">
+      <p class="entry__{{prefix}}__description">
+      {{data?.name}}
+      </p>
+     
+      <div class="entry__{{prefix}}__controls">
+        <span class="entry__{{prefix}}__controls__label"> Quantity</span>
+        <div class="wrapper">
+          <div class="entry__{{prefix}}__controls__quantity">
+            <span>
+              {{ units}}
+            </span>
+          </div>
+          <div class="entry__{{prefix}}__controls__buttons">
+            <button mat-button (click)="increment()" >
+              <mat-icon>add</mat-icon>
+            </button>
+            <button mat-button  (click)="decrement()">
+              <mat-icon>remove</mat-icon>
+            </button>
+          </div>
+        </div>
+        </div>
+    </mat-card-content>
+  </div>
+</mat-card>

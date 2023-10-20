@@ -1,0 +1,9 @@
+@use "mixins/selector" as selectors;
+coffee-machine-section-toppings{
+  .entry__title{
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    display: block
+  }
+  @include selectors.selector_multiple('toppings',200px);
+}

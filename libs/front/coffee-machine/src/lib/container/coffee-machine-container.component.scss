@@ -1,0 +1,26 @@
+:host{
+  .content{
+    margin: auto;
+    max-width: 1200px;
+    border-radius: 4px;
+    &__header{
+      border-radius: 4px;
+      height: 300px;
+      background: url("/assets/backgrounds/background-3.avif") no-repeat center center fixed;
+      background-size: cover;
+    }
+    &__inner{
+      border-radius: 4px;
+      background-color: black;
+      background-image: linear-gradient(to right, #4b4b4b , #ababa7);
+      &__section{
+        padding: 20px;
+        border-radius: 4px;
+        background-color: lightgrey;
+      }
+    }
+    &__checkout{
+        position: relative;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+@mixin selector_single($entry:'body',$height:150px) {
+    .entry__#{$entry}{
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px 10px 10px 10px;
+      box-shadow: 0;
+      transform: scale(0.97);
+      transition: box-shadow 0.5s, transform 0.5s, border-color 250ms;
+      cursor: pointer;
+      border-width: 2px;
+      border-color: transparent;
+
+      &:hover {
+        transform: scale(1);
+        box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      &.entry--selected{
+        border-color: rgba(218, 34, 34, 0.932);
+      }  
+
+      img{
+        display: block;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+        max-height: $height;
+        object-fit: fill;
+      }
+
+      &__description{
+        position: relative;
+        transition: transform 0.5s;
+        padding-top: 16px;
+        text-align: left;
+        margin: 0;
+        font-size: 1.5em;
+        display: flex;
+        flex-direction: column;
+        &__name {
+            font-weight: 500;
+          }
+        
+        &__price {
+          font-size: 0.75em;
+        }
+      }
+    }
+    @content;
+}
+
+
+
+@mixin selector_multiple($entry:'body',$height:200px) {
+  .entry{
+    &__#{$entry}{
+      &__inner{
+        display: flex;
+        flex-direction: column;
+        img{
+          display: block;
+          width: 100%;
+          height: 100%;
+          max-height: $height;
+          object-fit: fill;
+          object-position: center;
+          margin: auto;
+        }
+        &__content{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: calc(100% - 32px);
+        }
+      }
+      &__description{
+        text-align: center;
+        margin: 0;
+        font-size: 1.50em;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        font-weight: 500;
+      }
+      &__controls{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        &__label{
+          display: block;
+          font-weight: 500;
+          margin-bottom: 5px;
+        }
+        .wrapper{
+          display: flex;
+          flex-direction: row;
+        }
+        &__buttons{
+          border: solid 1px lightgray;
+          border-width: 1px 1px 0 1px;
+          display: flex;
+          flex-direction: column;
+          button{
+            cursor: pointer;
+            text-align: center;
+            border-bottom: solid 1px lightgray;
+            &.mat-mdc-button>.mat-icon{
+              margin: 0;
+            }
+          }
+        }
+
+        &__quantity{
+          border: solid 1px lightgray;
+          border-width: 1px 0 1px 1px;
+          display: flex;
+          width: 50px;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

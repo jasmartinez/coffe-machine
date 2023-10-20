@@ -1,0 +1,91 @@
+  <mat-card class="content__checkout">
+    <mat-card-content>
+      <div class="content__inner">
+        <!-- Controls -->
+        <div class="main-controls">
+            <button mat-raised-button [disabled]="(orderDisabled$ | async) || disableActions === true" color="primary"
+            (click)="processOrder()"
+            >Order</button>
+            <button mat-raised-button color="warn"
+            (click)="reset()"
+            >Reset</button>
+        </div>
+        <!-- Purse -->
+        <div class="purse">
+          <p class="purse__title">
+            Insert Coins
+          </p>
+          <div class="purse__container">
+            <button mat-mini-fab color="primary" [disabled]="disableActions" (click)="addCredit(1)">
+              1€
+            </button>
+            <button mat-mini-fab color="primary" [disabled]="disableActions" (click)="addCredit(2)">
+              2€
+            </button>
+            <button mat-mini-fab color="primary" [disabled]="disableActions" (click)="addCredit(5)">
+              5€
+            </button>
+            <button mat-mini-fab color="primary" [disabled]="disableActions" (click)="addCredit(10)">
+              10€
+            </button>
+          </div>
+        </div>
+        <!-- Display -->
+        <div class="display" *ngIf="!disableActions">
+          <p class="display__title">
+            Available money
+          </p>
+          <p class="display__credit">
+            {{ credit$ | async}} €
+          </p>
+        </div>
+        <!-- Summary -->
+        <div class="summary">
+          <p class="summary__title">
+           Order Summary
+          </p>
+           <ng-container *ngIf="(orderList$ | async) as orderList">
+              <ng-container *ngIf="orderList.length; then summaryTmpl; else emptySummaryTmpl"></ng-container>
+              <!-- Empty Summary Tmpl-->
+              <ng-template #emptySummaryTmpl>
+                No elements selected
+              </ng-template>
+
+              <!-- Summary Tmpl-->
+              <ng-template #summaryTmpl>
+                <div class="summary__table" >
+                  <table>
+                    <tr class="table-title">
+                      <td><span class="item-text">Item</span></td>
+                      <td><span class="item-text">Qty</span></td>
+                      <td><span class="item-text">Sub Total</span></td>
+                    </tr>
+      
+                    <ng-container *ngFor="let entry of orderList">
+                        <tr class="service">
+                          <td class="table-item"><p class="item-text">{{ entry.name}}</p></td>
+                          <td class="table-item"><p class="item-text">{{ entry.units}}</p></td>
+                          <td class="table-item"><p class="item-text">{{ entry.price }}€</p></td>
+                        </tr>
+                    </ng-container>
+      
+                    <tr class="table-title">
+                      <td></td>
+                      <td ><span class="item-text">Refund</span></td>
+                      <td ><span class="item-text">{{ refund$ | async}} €</span></td>
+                    </tr>
+        
+                    <tr class="table-title">
+                      <td></td>
+                      <td><span class="item-text">Total</span></td>
+                      <td><span class="item-text">{{ total$ | async}}€</span></td>
+                    </tr>
+      
+                  </table>
+                </div>
+              </ng-template>
+          </ng-container>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>

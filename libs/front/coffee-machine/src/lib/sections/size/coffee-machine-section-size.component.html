@@ -1,0 +1,15 @@
+<span class="entry__title">
+  Size
+</span>
+
+<div class="mdc-layout-grid__inner entry">
+  <ng-container *ngFor="let entry of entries$ | async">
+    <div class="mdc-layout-grid__cell">
+        <coffee-machine-selector-single
+        [data]="entry"
+        [prefix]="'size'"
+        (clickEvent)="updateSelection($event)"
+        ></coffee-machine-selector-single>
+    </div>
+  </ng-container>
+</div>

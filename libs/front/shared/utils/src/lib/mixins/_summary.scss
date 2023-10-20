@@ -1,0 +1,41 @@
+@mixin checkout_summary() {
+  .summary {
+    &__title {
+      display: block;
+      font-weight: 500;
+    }
+    &__header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__table {
+      table {
+        width: 100%;
+        border-collapse: collapse;
+
+        .table-title {
+          font-size: 0.95em;
+          background: #EEE;
+
+          .item-text {
+            margin-top: 5px;
+            margin-bottom: 5px;
+          }
+        }
+
+        .service {
+          border-bottom: 1px solid #EEE;
+        }
+
+        .item-text {
+          margin-left: 5px;
+          font-weight: 500;
+          display: block;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,13 @@
+<mat-card [ngClass]="{'entry--selected' : selected === true}"  class="entry__{{prefix}}" (click)="onClick()">
+  <img mat-card-image [src]="data?.url">
+  <mat-card-content>
+    <p class="entry__{{prefix}}__description">
+      <span class="entry__{{prefix}}__description__name">
+        {{data?.name}}
+      </span>
+      <span class="entry__{{prefix}}__description__price">
+        {{data?.price}} €
+      </span>
+    </p>
+  </mat-card-content>
+</mat-card>

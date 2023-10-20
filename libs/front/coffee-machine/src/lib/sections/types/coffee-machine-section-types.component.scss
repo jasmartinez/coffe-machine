@@ -1,0 +1,11 @@
+@use "mixins/selector" as selectors;
+
+coffee-machine-section-types{
+  @include selectors.selector_single('types'){
+    .entry__title{
+      font-size: 1.5em;
+      display: block;
+      margin-bottom: 15px;
+    }
+  };
+}

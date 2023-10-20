@@ -1,0 +1,17 @@
+@use "mixins/summary" as summary;
+
+.coffee-machine-summary-dialog {
+  cursor: pointer;
+
+  .mdc-snackbar__surface {
+    background-color: white;
+  }
+
+  &.mat-mdc-snack-bar-container .mdc-snackbar__label {
+    color: black;
+  }
+
+  coffee-machine-checkout-summary {
+    @include summary.checkout_summary();
+  }
+}
